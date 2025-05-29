@@ -1127,7 +1127,7 @@ body .markdown-body
 <ul>
 <li>
 <p><code>dataset/NifTi/Subject01_mri_deface.nii</code></p>
-<p><img alt="t1_image" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/mri-t1.png" title="MRI T1 image" /></p>
+<p><img alt="t1_image" src="./brainstorm_sEEG_files/mri-t1.png" title="MRI T1 image" /></p>
 </li>
 </ul>
 <ol start="2">
@@ -1136,7 +1136,7 @@ body .markdown-body
 <ul>
 <li>
 <p><code>dataset/NifTi/Subject01_ct_deface.nii</code></p>
-<p><img alt="ct_image" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/ct.png" title="CT scan" /></p>
+<p><img alt="ct_image" src="./brainstorm_sEEG_files/ct.png" title="CT scan" /></p>
 </li>
 </ul>
 <ol start="3">
@@ -1148,8 +1148,8 @@ body .markdown-body
 </li>
 <li>
 <p>There is a slide file (<code>dataset/Subject01_electrodemap.pptx</code>) that describes the electrode implantation in both hemisphere.</p>
-<p><img alt="sum_slides_lh" height="40%" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/electrode_map_left.png" title="Electrode summary slide lh" width="40%," /> 
-<img alt="sum_slides_rh" height="40%" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/electrode_map_right.png" title="Electrode summary slide rh" width="40%," /></p>
+<p><img alt="sum_slides_lh" height="40%" src="./brainstorm_sEEG_files/electrode_map_left.png" title="Electrode summary slide lh" width="40%," /> 
+<img alt="sum_slides_rh" height="40%" src="./brainstorm_sEEG_files/electrode_map_right.png" title="Electrode summary slide rh" width="40%," /></p>
 </li>
 </ul>
 <ol start="4">
@@ -1189,7 +1189,7 @@ body .markdown-body
 <li><strong>No, use individual anatomy</strong></li>
 <li>
 <p><strong>No, use one channel file per acquisition run</strong></p>
-<p><img alt="start_page" height="40%" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/bs_start1.png" title="New Protocol UI" width="40%," /> <img alt="start_page" height="43%" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/bs_start2.png" title="brainstorm UI" width="43%," /></p>
+<p><img alt="start_page" height="40%" src="./brainstorm_sEEG_files/bs_start1.png" title="New Protocol UI" width="40%," /> <img alt="start_page" height="43%" src="./brainstorm_sEEG_files/bs_start2.png" title="brainstorm UI" width="43%," /></p>
 </li>
 </ul>
 <h2 id="import-anatomy">Import Anatomy<a class="headerlink" href="#import-anatomy" title="Permanent link"></a></h2>
@@ -1200,7 +1200,7 @@ body .markdown-body
 <ul>
 <li>
 <p>Right-click on the protocol folder &gt; <code>New subject</code> &gt; <code>Subject01</code>. Keep the default options you defined for the protocol: <strong>No, use individual anatomy</strong>; <strong>No, use one channel file per acquisition run</strong></p>
-<p><img alt="import_step_1" height="30%" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/import1.png" title="import step 1" width="30%," /> <img alt="import_step_2" height="33%" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/import2.png" title="import step 2" width="33%," /> <img alt="import_step_3" height="30%" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/import3.png" title="import step 3" width="30%," /></p>
+<p><img alt="import_step_1" height="30%" src="./brainstorm_sEEG_files/import1.png" title="import step 1" width="30%," /> <img alt="import_step_2" height="33%" src="./brainstorm_sEEG_files/import2.png" title="import step 2" width="33%," /> <img alt="import_step_3" height="30%" src="./brainstorm_sEEG_files/import3.png" title="import step 3" width="30%," /></p>
 </li>
 </ul>
 <ol start="2">
@@ -1215,11 +1215,11 @@ body .markdown-body
 </li>
 <li>
 <p>The MRI viewer opens automatically. The anatomical fiducials are undefined at this point; they will be set in the next step. </p>
-<p><img alt="mri_viewer" height="90%" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/mriview1.png" title="MRI Viewer" width="90%," /></p>
+<p><img alt="mri_viewer" height="90%" src="./brainstorm_sEEG_files/mriview1.png" title="MRI Viewer" width="90%," /></p>
 </li>
 <li>
 <p>Click on <code>Click here to compute MNI normalization</code>, select option <code>segment</code>. It computes a non-linear transformation between the subject space and the MNI ICBM152 space. It takes a while for this computation and the fiducials will be automatically defined after this computation. </p>
-<p><img alt="mri_viewer2" height="90%" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/mriview2.png" title="MRI Viewer after normalization" width="90%," /></p>
+<p><img alt="mri_viewer2" height="90%" src="./brainstorm_sEEG_files/mriview2.png" title="MRI Viewer after normalization" width="90%," /></p>
 </li>
 <li>
 <p>Check fiducials, follow this <a href="https://neuroimage.usc.edu/brainstorm/CoordinateSystems">instruction</a>. Click <code>Save</code> to finish.</p>
@@ -1237,7 +1237,7 @@ body .markdown-body
 <li>white_15002V: Low-resolution white matter, processed with reducepatch</li>
 <li>
 <p>subcortical: Atlas of subcortical regions imported as labelled surfaces</p>
-<p><img alt="import_step_4" height="50%" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/import4.png" title="imported FreeSurfer anatomy" width="50%," /></p>
+<p><img alt="import_step_4" height="50%" src="./brainstorm_sEEG_files/import4.png" title="imported FreeSurfer anatomy" width="50%," /></p>
 </li>
 </ul>
 </li>
@@ -1254,7 +1254,7 @@ body .markdown-body
 </li>
 <li>
 <p>Check co-registration result, close the Viewer window.</p>
-<p><img alt="coreged_ct_mri" height="90%" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/coreged.png" title="CT/MRI overlay after co-registration" width="90%," /></p>
+<p><img alt="coreged_ct_mri" height="90%" src="./brainstorm_sEEG_files/coreged.png" title="CT/MRI overlay after co-registration" width="90%," /></p>
 </li>
 <li>
 <p>[optional] Right click the <code>Subject01_ct_deface_spm_reslice</code> &gt; <code>File</code> &gt; <code>Rename</code> &gt; <code>CT</code></p>
@@ -1272,7 +1272,7 @@ body .markdown-body
 </li>
 <li>
 <p>In the pop-up window, we can select which volumes (MRI/CT/MRI+CT) to do localization. I recommend using the <code>CT</code> volume. Click <code>CT</code> or <code>MRI+CT</code> and a Viewer window will pop up like this:</p>
-<p><img alt="localization_step_1" height="90%" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/localize1.png" title="localization on CT" width="90%," /></p>
+<p><img alt="localization_step_1" height="90%" src="./brainstorm_sEEG_files/localize1.png" title="localization on CT" width="90%," /></p>
 </li>
 <li>
 <p><strong>Do not close the Viewer!</strong> It’s needed for the whole process of localization.</p>
@@ -1284,7 +1284,7 @@ body .markdown-body
 <ul>
 <li>
 <p>In the right panel of the brainstorm UI, under the <code>iEEG</code> tab. Click <code>+</code> to add an electrode (click <code>-</code> to delete). </p>
-<p><img alt="localization_step_2" height="40%" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/localize2.png" title="add electrode" width="40%," /></p>
+<p><img alt="localization_step_2" height="40%" src="./brainstorm_sEEG_files/localize2.png" title="add electrode" width="40%," /></p>
 </li>
 <li>
 <p>Let’s start with one example electrode: <strong>X</strong>.</p>
@@ -1292,19 +1292,19 @@ body .markdown-body
 <li>The order matters, my recommendation is start with the hemisphere that has fewer electrodes, move from anterior to posterior. Value <strong>coronal</strong> image since most electrodes are implanted from left/right side of the brain.</li>
 <li>
 <p>Select correct electrode parameter, for instance in this case: <code>Huake-Hengsheng SDE-08-S16</code>. Change <code>Number of contacts</code> according to how many contacts this electrode has, in this case: 16. If the number of contacts exceeds 16, change <code>Electrode length</code> to 100 mm to accommodate longer shafts.</p>
-<p><img alt="localization_step_3" height="40%" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/localize3.png" title="select electrode parameter" width="40%," /></p>
+<p><img alt="localization_step_3" height="40%" src="./brainstorm_sEEG_files/localize3.png" title="select electrode parameter" width="40%," /></p>
 </li>
 <li>
 <p>Check the Viewer window of the CT scan. Find the tip of the <strong>X</strong> electrode, put the cross at the tip. Use zoom in/out for help, and take image in <code>dataset/Subject01_electrodemap.pptx</code> for reference. Once confirmed the tip, go back to the brainstorm UI, click <code>Set tip</code>.</p>
-<p><img alt="localization_step_4" height="90%" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/localize4.png" title="localization electrode tip" width="90%," /></p>
+<p><img alt="localization_step_4" height="90%" src="./brainstorm_sEEG_files/localize4.png" title="localization electrode tip" width="90%," /></p>
 </li>
 <li>
 <p>Again, check the Viewer window of the CT scan and find the skull entry of the <strong>X</strong> electrode, put the cross at it. Make sure the point selected is outside of the skull. Once confirmed the skull entry, go back to the brainstorm UI, click <code>Set skull entry</code>.</p>
-<p><img alt="localization_step_5" height="90%" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/localize5.png" title="localization electrode skull entry" width="90%," /></p>
+<p><img alt="localization_step_5" height="90%" src="./brainstorm_sEEG_files/localize5.png" title="localization electrode skull entry" width="90%," /></p>
 </li>
 <li>
 <p>Check the Viewer window of the CT scan. Scroll around, you can see the electrode <strong>X</strong> has been localized.</p>
-<p><img alt="localization_step_6" height="90%" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/localize6.png" title="Example electrode is localized" width="90%," /></p>
+<p><img alt="localization_step_6" height="90%" src="./brainstorm_sEEG_files/localize6.png" title="Example electrode is localized" width="90%," /></p>
 </li>
 </ul>
 </li>
@@ -1324,7 +1324,7 @@ body .markdown-body
 <ul>
 <li>
 <p>In functional data section, right-click on the <code>Subject01-Implantation-SEEG/ECOG(###)</code> &gt; <code>iEEG atlas labels</code>. Select the output directory, and name the file <code>Subject01.tsv</code>. Click <code>OK</code>, then confirm with <code>Yes</code> for subsequent pop-up. The generated file will open.</p>
-<p><img alt="labeling1" height="90%" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/label.png" title="Anatomical labeling in native space" width="90%," /></p>
+<p><img alt="labeling1" height="90%" src="./brainstorm_sEEG_files/label.png" title="Anatomical labeling in native space" width="90%," /></p>
 </li>
 <li>
 <p>This file contains contact’s coordinates and anatomical labeling in different atlases and corresponding probability. I recommend to use <strong>Destrieux</strong>.</p>
@@ -1352,7 +1352,7 @@ body .markdown-body
 <ul>
 <li>
 <p>Native space. In functional data section, right-click on the subject <code>Subject01-Implantation-SEEG/ECOG(###)</code> &gt; <code>Display sensors</code> &gt; <code>SEEG (Cortex)</code>. Adjust level of transparency of the cortex under the <code>Surface</code> tab. Display atlas labels and contours under the <code>Scout</code> tab &gt; <code>Atlas</code> &gt; <code>From subject anatomy</code> &gt; <code>Destrieux</code>. To generate movie, in the 3D view window, right-click, select <code>Snapshot</code> &gt; <code>Movie (horizontal/vertical)</code>.</p>
-<p><img alt="vis_1" height="80%" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/bs_3D.png" title="Right view of electrode reconstruction in native space" width="80%," /></p>
+<p><img alt="vis_1" height="80%" src="./brainstorm_sEEG_files/bs_3D.png" title="Right view of electrode reconstruction in native space" width="80%," /></p>
 </li>
 <li>
 <p>MNI space. In functional data section, right-click on the subject <code>Group_channels-Subject01-SEEG/ECOG(###)</code> &gt; <code>Display sensors</code> &gt; <code>SEEG (Cortex)</code>.</p>
@@ -1367,7 +1367,7 @@ body .markdown-body
 <li>Extract the MNI coordinates computed from brainstorm and read it to <code>numpy</code> arrays.</li>
 <li>
 <p>Use <code>FreeSurfer</code> <strong>fsaverage</strong> as template.</p>
-<p><img alt="vis_2" height="70%" src="/home/haozhu/Desktop/brainstorm_tutorial/brainstorm_sEEG_files/sEEG_brain.png" title="Right view of group electrode reconstruction in MNI space with pyVista" width="70%," /></p>
+<p><img alt="vis_2" height="70%" src="./brainstorm_sEEG_files/sEEG_brain.png" title="Right view of group electrode reconstruction in MNI space with pyVista" width="70%," /></p>
 </li>
 </ul>
 <h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link"></a></h2>
