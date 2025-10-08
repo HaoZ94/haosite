@@ -8107,98 +8107,6 @@ this file apply (plus whatever default styling the IDE applies).
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=af31b88e-f7ac-4642-b267-7c952fc17a26">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="remove-line-noise-channel">remove line noise channel<a class="anchor-link" href="#remove-line-noise-channel">¶</a></h3>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9563c94c-f1e9-400a-9884-71bec47127d2">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">line_noise_removal</span><span class="p">(</span><span class="n">raw_object</span><span class="p">:</span> <span class="n">mne</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">Raw</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Remove channels dominated by line noise.</span>
-<span class="sd">    </span>
-<span class="sd">    Parameters:</span>
-<span class="sd">        raw_object: instance of MNE Raw containing the data.</span>
-<span class="sd">        </span>
-<span class="sd">    Returns:</span>
-<span class="sd">        indices of channels to be removed based on the line noise threshold.</span>
-<span class="sd">    """</span>
-    <span class="c1"># Extract data from the raw object.</span>
-    <span class="n">raw_data</span> <span class="o">=</span> <span class="n">raw_object</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
-    
-    <span class="c1"># Define the target frequency (50 Hz) and quality factor for the notch filter.</span>
-    <span class="n">f0</span> <span class="o">=</span> <span class="mf">50.0</span>  <span class="c1"># Target frequency to be retained (Hz)</span>
-    <span class="n">Q</span> <span class="o">=</span> <span class="mf">30.0</span>   <span class="c1"># Quality factor, controlling the bandwidth of the filter</span>
-    
-    <span class="c1"># Get the sampling frequency from the raw object's info.</span>
-    <span class="n">sfreq</span> <span class="o">=</span> <span class="n">raw_object</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">'sfreq'</span><span class="p">]</span>
-    
-    <span class="c1"># Create a second-order IIR peak (notch) filter at 50 Hz.</span>
-    <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">iirpeak</span><span class="p">(</span><span class="n">f0</span> <span class="o">/</span> <span class="p">(</span><span class="n">sfreq</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="n">Q</span><span class="p">)</span>
-    
-    <span class="c1"># Apply the filter along the time axis (axis=1) for each channel.</span>
-    <span class="n">raw_xLN</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">filtfilt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">raw_data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    
-    <span class="c1"># Calculate the power (mean squared value) for each channel.</span>
-    <span class="n">raw_LN</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">raw_xLN</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    
-    <span class="c1"># Compute the median and mean absolute deviation of the filtered signal.</span>
-    <span class="n">raw_xLN_median</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">raw_xLN</span><span class="p">)</span>
-    <span class="n">raw_xLN_mad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">raw_xLN</span> <span class="o">-</span> <span class="n">raw_xLN_median</span><span class="p">))</span>
-    
-    <span class="c1"># Define a threshold: channels with power greater than the median plus 10 times MAD.</span>
-    <span class="n">LN_threshold</span> <span class="o">=</span> <span class="n">raw_xLN_median</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">raw_xLN_mad</span>
-    
-    <span class="c1"># Identify indices of channels exceeding the noise threshold.</span>
-    <span class="n">removal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">raw_LN</span> <span class="o">&gt;</span> <span class="n">LN_threshold</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-
-    <span class="k">return</span> <span class="n">removal</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=3c87f112-7664-4ef8-9862-0c3d94fc6b49">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Identify channels that are dominated by line noise.</span>
-<span class="n">line_noise_channel</span> <span class="o">=</span> <span class="n">line_noise_removal</span><span class="p">(</span><span class="n">raw</span><span class="p">)</span>
-<span class="n">line_noise_channel</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>array([], dtype=int64)</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=e8885be9-85f0-48ba-85f5-93a1a93e6cae">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8206,8 +8114,12 @@ this file apply (plus whatever default styling the IDE applies).
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h3 id="re-reference-with-Bi-polar">re-reference with Bi-polar<a class="anchor-link" href="#re-reference-with-Bi-polar">¶</a></h3><p>The primary purpose of re-referencing is to mitigate the impact of the reference electrode on the recorded sEEG signals. In this sample dataset, sEEG signals were online referenced with contact (1 or 2) in the white matter (mono-polar method). This reference electrode can pick up artifacts that affect all other channels, potentially distorting the true brain signals of interest. And it reduces biases introduced by the original reference electrode and minimizes spurious correlations between channels.</p>
-<p>It can help improve the overall signal quality and signal-to-noise ratio (SNR). By choosing an appropriate re-referencing method, researchers can reduce common noise and artifacts that may be present in the original reference. You may refer to this paper for more comprehensive info about which method to use: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6495648/">https://pmc.ncbi.nlm.nih.gov/articles/PMC6495648/</a></p>
-<p>I selected bi-polar a(1,2)= a(1)-a(2) for this tutorial.</p>
+<p>It can help improve the overall signal quality and signal-to-noise ratio (SNR). By choosing an appropriate re-referencing method, researchers can reduce common noise and artifacts that may be present in the original reference. You may refer to  <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6495648/pdf/nihms-1017676.pdf">this paper</a> for more comprehensive info about which method to use.</p>
+<p>I selected bi-polar reference for this tutorial:</p>
+<ul>
+<li>A bipolar reference takes the difference between two channels and adds it as a new virtual channel. The original channels will be dropped by default. If a channel in a potential pair is missing (e.g., 'A3' is missing in the sequence 'A1', 'A2', 'A4'), the pair involving the missing channel is skipped.</li>
+</ul>
+<p>If you'd like to see how to use an alternative reference (e.g. Electrode Shaft Reference [ESR]), check <a href="https://www.hao-zhu.com/assets/resources/sEEG_preprocess_demo_v2.html">this tutorial</a>.</p>
 </div>
 </div>
 </div>
