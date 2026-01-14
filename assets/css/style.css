@@ -1880,3 +1880,57 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-text { max-width: 700px; }
 
 }
+
+/* Custom styles for publication buttons */
+.project-item .project-content {
+  width: 100%;
+}
+
+/* Remove the default pointer from the list item wrapper since it's no longer a single link */
+.project-item {
+  cursor: default;
+}
+
+.project-title {
+  margin-bottom: 5px;
+  color: var(--white-2); /* Assuming template variable, or use #fafafa */
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.project-category {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--light-gray); /* Assuming template variable, or use #d6d6d6 */
+  margin-bottom: 10px;
+}
+
+.button-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 8px;
+}
+
+.pub-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: #d6d6d6; /* Light gray text */
+  padding: 6px 12px;
+  border: 1px solid #3e3e3e; /* Subtle border */
+  border-radius: 8px;
+  transition: 0.25s ease;
+  background: transparent;
+  text-decoration: none;
+}
+
+.pub-btn:hover {
+  background: linear-gradient(to right, hsl(45, 100%, 72%), hsl(35, 100%, 68%)); /* Gold accent */
+  color: #121212; /* Dark text on hover */
+  border-color: transparent;
+}
+
+.pub-btn ion-icon {
+  font-size: 14px;
+}
