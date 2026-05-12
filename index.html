@@ -114,13 +114,16 @@
             </div>
             <div class="contact-info">
               <p class="contact-title">Page Views</p>
-                <!-- Default gnrcounter.com code for hao-zhu.com -->
-                <script language="JavaScript" type="text/javascript" src="https://gnrcounter.com/counter.php?accId=5f11618297cdb284fe18dcbae604d830"></script>
-                <noscript>
-                <a href="https://gnrcounter.com" title="Web Analytics">Web Analytics</a>
-                </noscript>
-                <!-- End of gnrcounter.com Code -->
-                <!-- https://gnrcounter.com/dashboard/?accId=5f11618297cdb284fe18dcbae604d830&sCode=P1R3T4 -->
+                <p class="contact-link" id="page-view-count">…</p>
+                <script>
+                  (function () {
+                    var el = document.getElementById('page-view-count');
+                    fetch('https://abacus.jasoncameron.dev/hit/haosite/pageviews')
+                      .then(function (r) { return r.json(); })
+                      .then(function (d) { if (d && typeof d.value === 'number') el.textContent = d.value.toLocaleString(); })
+                      .catch(function () { el.textContent = '—'; });
+                  })();
+                </script>
             </div>
 
           </li>
