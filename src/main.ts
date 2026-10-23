@@ -51,9 +51,15 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         </div>
         <figure class="brain-scene" aria-labelledby="brain-caption">
           <canvas class="brain-canvas" role="img" tabindex="0" aria-label="A translucent three-dimensional brain showing the cortex, cerebellum, and brainstem, with illustrative glowing signals. Drag or use arrow keys to rotate. Tap or press Enter to send a signal.">A translucent brain with a folded cortex, cerebellum, brainstem, and illustrative neural signals.</canvas>
+          <p class="brain-region-label" data-brain-region-label hidden>Explore the brain’s regions</p>
           <p class="brain-loading" role="status">Loading brain surface…</p>
           <figcaption id="brain-caption"><span>The brain, in motion</span><span class="brain-hint">Drag to rotate. Tap to activate.</span></figcaption>
-          <div class="brain-controls"><button type="button" class="brain-pulse" data-brain-pulse disabled><span class="pulse-symbol" aria-hidden="true"></span>Send a signal</button><button type="button" class="brain-toggle" data-brain-toggle aria-pressed="false" disabled>Pause motion</button></div>
+          <div class="brain-controls">
+            <button type="button" class="brain-pulse" data-brain-pulse disabled><span class="pulse-symbol" aria-hidden="true"></span>Send a signal</button>
+            <button type="button" class="brain-expand" data-brain-expand aria-expanded="false" aria-controls="brain-regions" disabled><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M3 3l5 5m13-5-5 5M3 21l5-5m13 5-5-5"/></svg><span data-brain-expand-text>Explore regions</span></button>
+            <button type="button" class="brain-toggle" data-brain-toggle aria-pressed="false" disabled>Pause motion</button>
+          </div>
+          <div class="brain-region-legend" id="brain-regions" data-brain-regions role="group" aria-label="Brain regions. Choose a region to send a signal." hidden></div>
           <output class="sr-only" data-brain-status aria-live="polite"></output>
         </figure>
       </section>

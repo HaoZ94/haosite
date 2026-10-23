@@ -1,0 +1,106 @@
+{
+  "source": {
+    "name": "FreeSurfer fsaverage aseg whole-hippocampus segmentation",
+    "url": "https://www.freesurfer.net/pub/dist/freesurfer/tutorial_versions_centos6/freesurfer/subjects/fsaverage/mri/aseg.mgz",
+    "sha256": "b55ef817e5e5bd1a3d76d4a2305283eef16fbff199ead3d840dd4b0fa8205e48",
+    "labelDocumentation": "https://surfer.nmr.mgh.harvard.edu/fswiki/FsTutorial/AnatomicalROI/FreeSurferColorLUT",
+    "coordinateSystem": "FreeSurfer surface RAS (vox2ras_tkr), in mm; aligned with fsaverage5 pial surfaces",
+    "vox2rasTkr": [
+      [
+        -1.0,
+        0.0,
+        0.0,
+        128.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        -128.0
+      ],
+      [
+        0.0,
+        -1.0,
+        0.0,
+        128.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "license": "FreeSurfer Software License Agreement v1.0 (February 2011)",
+    "modification": "Labels 17 and 53 extracted at 1 mm sampling after a 0.7 mm Gaussian; largest closed component retained, outward normals averaged once. Whole hippocampi, not hippocampal subfields.",
+    "settings": {
+      "gaussianSigmaMM": 0.7,
+      "samplingMM": 1,
+      "isolation": 0.5,
+      "normalSmoothingPasses": 1,
+      "normalSmoothingBlend": 0.5,
+      "coordinateDecimals": 5,
+      "normalDecimals": 5
+    }
+  },
+  "generator": {
+    "path": "scripts/build-hippocampus.py",
+    "sha256": "ac7610507ed6f0547b68942dca68afc0bd2ea84f1d5728b613ce3d12d1c7abb5"
+  },
+  "dependencies": {
+    "numpy": "2.5.4",
+    "nibabel": "5.4.2",
+    "scipy": "1.18.1",
+    "scikit-image": "0.26.0",
+    "trimesh": "5.1.1"
+  },
+  "parts": {
+    "hippocampusLeft": {
+      "label": 17,
+      "sourceVoxels": 5165,
+      "vertices": 3506,
+      "triangles": 7008,
+      "boundsMM": [
+        [
+          -37.4845,
+          -43.40986,
+          -31.78004
+        ],
+        [
+          -11.97338,
+          -7.50333,
+          4.48888
+        ]
+      ],
+      "volumeMM3": 5010.83755,
+      "componentsBeforeSelection": 1,
+      "watertight": true,
+      "windingConsistent": true,
+      "eulerCharacteristic": 2
+    },
+    "hippocampusRight": {
+      "label": 53,
+      "sourceVoxels": 5387,
+      "vertices": 3520,
+      "triangles": 7036,
+      "boundsMM": [
+        [
+          13.649,
+          -43.17891,
+          -31.1304
+        ],
+        [
+          39.45759,
+          -7.62802,
+          5.48425
+        ]
+      ],
+      "volumeMM3": 5229.63739,
+      "componentsBeforeSelection": 1,
+      "watertight": true,
+      "windingConsistent": true,
+      "eulerCharacteristic": 2
+    }
+  },
+  "outputSha256": "623ab684596903ed5918525c929e7d9417c29c97a68ab98fa4601d20d3235a38"
+}
