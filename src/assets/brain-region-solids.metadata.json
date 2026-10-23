@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "spacing": 1.4,
+  "blurMM": 1.2,
+  "domeFraction": 0.04,
+  "isolation": 0.5001,
+  "normalSmoothingPasses": 10,
+  "normalSmoothingBlend": 0.65,
+  "coordinateSystem": "FreeSurfer surface RAS, millimeters",
+  "description": "Illustrative smoothed solid closures of fsaverage5 atlas patches; not measured interior anatomy.",
+  "sources": [
+    {
+      "path": "src/assets/brain-fsaverage5.json",
+      "sha256": "c7084eec499c02ad2c5263fb740df5dfeb3b5d85aa1e361ca23cc822b22c07b7"
+    },
+    {
+      "path": "src/assets/brain-regions.json",
+      "sha256": "da323db925d8f052e3d357f1e1ef64a8cb63f177fa6f4ad61ccb19fa31708b17"
+    },
+    {
+      "path": "src/brain-regions.ts",
+      "sha256": "a1f268a4d0fff74b5b803c59307c319a4e9b6a0b8f0367be8c41f564b8c27054"
+    },
+    {
+      "path": "src/brain-region-solids.ts",
+      "sha256": "6f89e258867bd43c9f97bd1afe761c5de22cdad7f76a27290e07360a9b9c2de9"
+    },
+    {
+      "path": "scripts/build-brain-solids.mjs",
+      "sha256": "b4e03bbb2f83e7c94dd2426064b0224a9f6ed3b6196a3d2ce422fc33b3ef7c0c"
+    }
+  ],
+  "assetSha256": "75bfe3345922270a2daa2e7b318ff9cb12e4d4859fdeb2792646b95c89055d15",
+  "compressedBytes": 3609836,
+  "regions": [
+    {
+      "side": "left",
+      "label": 0,
+      "vertices": 4554,
+      "triangles": 9104,
+      "sources": 1038,
+      "volumeMM3": 21551.906
+    },
+    {
+      "side": "left",
+      "label": 1,
+      "vertices": 21028,
+      "triangles": 42052,
+      "sources": 3126,
+      "volumeMM3": 165146.767
+    },
+    {
+      "side": "left",
+      "label": 2,
+      "vertices": 14254,
+      "triangles": 28504,
+      "sources": 2729,
+      "volumeMM3": 76401.192
+    },
+    {
+      "side": "left",
+      "label": 3,
+      "vertices": 12634,
+      "triangles": 25264,
+      "sources": 1705,
+      "volumeMM3": 79462.637
+    },
+    {
+      "side": "left",
+      "label": 4,
+      "vertices": 6204,
+      "triangles": 12404,
+      "sources": 869,
+      "volumeMM3": 32187.254
+    },
+    {
+      "side": "left",
+      "label": 5,
+      "vertices": 2100,
+      "triangles": 4196,
+      "sources": 329,
+      "volumeMM3": 9063.823
+    },
+    {
+      "side": "left",
+      "label": 6,
+      "vertices": 3476,
+      "triangles": 6948,
+      "sources": 446,
+      "volumeMM3": 10693.066
+    },
+    {
+      "side": "right",
+      "label": 0,
+      "vertices": 4688,
+      "triangles": 9372,
+      "sources": 1020,
+      "volumeMM3": 22055.661
+    },
+    {
+      "side": "right",
+      "label": 1,
+      "vertices": 20626,
+      "triangles": 41248,
+      "sources": 3169,
+      "volumeMM3": 165163.704
+    },
+    {
+      "side": "right",
+      "label": 2,
+      "vertices": 14216,
+      "triangles": 28428,
+      "sources": 2823,
+      "volumeMM3": 77571.88
+    },
+    {
+      "side": "right",
+      "label": 3,
+      "vertices": 12644,
+      "triangles": 25284,
+      "sources": 1669,
+      "volumeMM3": 76757.677
+    },
+    {
+      "side": "right",
+      "label": 4,
+      "vertices": 6478,
+      "triangles": 12956,
+      "sources": 830,
+      "volumeMM3": 34776.496
+    },
+    {
+      "side": "right",
+      "label": 5,
+      "vertices": 2040,
+      "triangles": 4076,
+      "sources": 322,
+      "volumeMM3": 8498.674
+    },
+    {
+      "side": "right",
+      "label": 6,
+      "vertices": 3514,
+      "triangles": 7024,
+      "sources": 409,
+      "volumeMM3": 11779.789
+    }
+  ]
+}

@@ -10,6 +10,7 @@
     "dev": "vite --host 127.0.0.1",
     "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.server.json",
     "test": "node --experimental-strip-types --test tests/*.test.mjs",
+    "build:brain-solids": "node --experimental-strip-types scripts/build-brain-solids.mjs",
     "build": "npm run typecheck && vite build && tsc -p tsconfig.server.json",
     "postbuild": "node scripts/copy-static.mjs",
     "preview": "vite preview --host 127.0.0.1",

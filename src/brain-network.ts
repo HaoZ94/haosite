@@ -1,4 +1,4 @@
-export type BrainRegionId = 'cortexLeft' | 'cortexRight' | 'cerebellumLeft' | 'cerebellumRight' | 'brainstem';
+export type BrainRegionId = 'cortexLeft' | 'cortexRight' | 'cerebellumLeft' | 'cerebellumRight' | 'brainstem' | 'hippocampusLeft' | 'hippocampusRight';
 
 export interface BrainSurfaceData {
   positions: ArrayLike<number>;
@@ -25,7 +25,9 @@ export interface BrainSignalPlan {
 
 export const SIGNAL_SPEED = 0.42;
 export const SIGNAL_FADE_SECONDS = 1.4;
-export const BRAIN_REGIONS: readonly BrainRegionId[] = ['cortexLeft', 'cortexRight', 'cerebellumLeft', 'cerebellumRight', 'brainstem'];
+export const BRAIN_REGIONS: readonly BrainRegionId[] = [
+  'cortexLeft', 'cortexRight', 'cerebellumLeft', 'cerebellumRight', 'brainstem', 'hippocampusLeft', 'hippocampusRight',
+];
 
 type Point3 = readonly [number, number, number];
 
@@ -95,20 +97,23 @@ export function createBrainNetwork(surfaces: Record<BrainRegionId, BrainSurfaceD
     normals[offset + 2] /= length;
   }
   const network: BrainNetwork = { positions, normals, neighbors: [], regions, regionByVertex, bridges: [] };
-  // These four connectors are illustrative animation links, not reconstructed
-  // neural tracts. All five real anatomical surfaces are connected via the stem.
-  const connections: [BrainRegionId, Point3, Point3][] = [
-    ['cortexLeft', [-0.40, -0.31, 0.05], [-0.10, -0.32, 0.12]],
-    ['cortexRight', [0.40, -0.31, 0.05], [0.10, -0.32, 0.12]],
-    ['cerebellumLeft', [-0.17, -0.49, 0.30], [-0.11, -0.47, 0.20]],
-    ['cerebellumRight', [0.17, -0.49, 0.30], [0.11, -0.47, 0.20]],
+  // These connectors are illustrative animation links, not reconstructed neural
+  // tracts. Each hippocampus joins the temporal cortex on the same side; the
+  // existing cortical and cerebellar links connect the wider network via the stem.
+  const connections: [BrainRegionId, Point3, BrainRegionId, Point3][] = [
+    ['cortexLeft', [-0.40, -0.31, 0.05], 'brainstem', [-0.10, -0.32, 0.12]],
+    ['cortexRight', [0.40, -0.31, 0.05], 'brainstem', [0.10, -0.32, 0.12]],
+    ['cerebellumLeft', [-0.17, -0.49, 0.30], 'brainstem', [-0.11, -0.47, 0.20]],
+    ['cerebellumRight', [0.17, -0.49, 0.30], 'brainstem', [0.11, -0.47, 0.20]],
+    ['hippocampusLeft', [-0.25, -0.40, -0.02], 'cortexLeft', [-0.40, -0.42, -0.05]],
+    ['hippocampusRight', [0.25, -0.40, -0.02], 'cortexRight', [0.40, -0.42, -0.05]],
   ];
-  for (const [region, surfaceAnchor, stemAnchor] of connections) {
-    const a = findNearestVertex(network, region, surfaceAnchor);
-    const b = findNearestVertex(network, 'brainstem', stemAnchor);
+  for (const [from, fromAnchor, to, toAnchor] of connections) {
+    const a = findNearestVertex(network, from, fromAnchor);
+    const b = findNearestVertex(network, to, toAnchor);
     neighbors[a].add(b);
     neighbors[b].add(a);
-    network.bridges.push({ a, b, from: region, to: 'brainstem', illustrative: true });
+    network.bridges.push({ a, b, from, to, illustrative: true });
   }
   network.neighbors = neighbors.map((set) => [...set]);
   return network;
@@ -168,7 +173,7 @@ function shortestPaths(network: BrainNetwork, source: number): { distances: Floa
   return { distances, previous };
 }
 
-/** Every signal reaches all five regions; local branches add detail near its source. */
+/** Every signal reaches all anatomical regions; local branches add detail near its source. */
 export function planBrainSignal(network: BrainNetwork, source: number): BrainSignalPlan {
   if (!Number.isInteger(source) || source < 0 || source >= network.neighbors.length) throw new RangeError('Invalid signal source.');
   const { distances, previous } = shortestPaths(network, source);
@@ -177,6 +182,7 @@ export function planBrainSignal(network: BrainNetwork, source: number): BrainSig
     cortexLeft: [-0.53, 0.20, -0.32], cortexRight: [0.53, 0.25, 0.40],
     cerebellumLeft: [-0.40, -0.57, 0.50], cerebellumRight: [0.40, -0.57, 0.50],
     brainstem: [0.10, -0.76, 0.18],
+    hippocampusLeft: [-0.28, -0.14, 0.22], hippocampusRight: [0.28, -0.14, 0.22],
   };
   for (const region of BRAIN_REGIONS) {
     let target = findNearestVertex(network, region, anchors[region]);

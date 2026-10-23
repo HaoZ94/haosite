@@ -71,11 +71,21 @@
   .brain-controls button:disabled { opacity: .5; cursor: default; }
   .brain-scene figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 5px 12px; color: var(--muted); font-size: 10px; line-height: 1.6; margin-top: 10px; }
   .brain-scene figcaption > span:first-child { color: var(--accent); }
-  .brain-controls { display: flex; align-items: center; gap: 20px; margin-top: 16px; }
-  .brain-pulse, .brain-toggle { display: inline-flex; gap: 9px; align-items: center; min-height: 36px; font-size: 11px; line-height: 1.5; padding: 5px 0; }
+  .brain-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 20px; margin-top: 16px; }
+  .brain-pulse, .brain-toggle, .brain-expand { display: inline-flex; gap: 9px; align-items: center; min-height: 36px; font-size: 11px; line-height: 1.5; padding: 5px 0; }
   .brain-pulse { color: var(--ink); }
+  .brain-expand { color: var(--ink); }
+  .brain-expand .icon { width: 14px; height: 14px; }
+  .brain-expand[aria-expanded='true'] { color: var(--accent); }
   .brain-toggle { color: var(--muted); margin-left: auto; }
-  .brain-toggle:hover, .brain-pulse:hover { color: var(--accent); }
+  .brain-toggle:hover, .brain-pulse:hover, .brain-expand:hover { color: var(--accent); }
+  .brain-region-label { position: absolute; inset: 0 0 auto; color: var(--muted); font-size: 11px; text-align: center; pointer-events: none; }
+  .brain-region-label::first-letter { text-transform: uppercase; }
+  .brain-region-legend { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px 8px; padding-top: 12px; margin-top: 9px; border-top: 1px solid var(--line); }
+  .brain-region-legend button { display: flex; align-items: center; gap: 6px; min-height: 32px; padding: 3px 0; font-size: 10px; line-height: 1.4; color: var(--muted); text-align: left; }
+  .brain-region-legend button > span { width: 6px; height: 6px; border-radius: 50%; background: var(--region-color); flex-shrink: 0; }
+  .brain-region-legend button:hover, .brain-region-legend button[data-active='true'] { color: var(--ink); }
+  .brain-region-legend button[data-active='true'] > span { box-shadow: 0 0 0 3px color-mix(in srgb, var(--region-color) 20%, transparent); }
   .pulse-symbol { display: block; width: 7px; height: 7px; border: 1px solid currentColor; border-radius: 50%; box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 10%, transparent); }
   .portrait { width: 200px; max-width: 100%; margin-top: 28px; }
   .portrait-image { border-radius: 8px 8px 30px 8px; overflow: hidden; background: #345367; aspect-ratio: .84; }
@@ -254,6 +264,8 @@
     .footer-right { gap: 12px; justify-content: flex-end; }
   }
   @media (max-width: 480px) {
+    .brain-controls { column-gap: 14px; }
+    .brain-region-legend { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     nav a { font-size: 11px; padding: 8px 6px; }
     .filters { width: 100%; }
     .filters button { flex: 1; font-size: 11px; padding: 10px 8px; }
