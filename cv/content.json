@@ -1,0 +1,157 @@
+{
+  "name": "Hao Zhu",
+  "credential": "Ph.D. Neuroscience",
+  "institute": "Brain and Mind Institute",
+  "university": "The Chinese University of Hong Kong",
+  "address": "4/F Hui Yeung Shing Building, Shatin, N.T., Hong Kong SAR, China",
+  "email": "haozhu@cuhk.edu.hk",
+  "website": "hao-zhu.com",
+  "content_updated": "28 October 2026",
+  "appointments": [
+    {
+      "date": "2024-present",
+      "title": "Postdoctoral Fellow",
+      "lines": [
+        "Brain and Mind Institute, The Chinese University of Hong Kong",
+        "Department of Linguistics and Modern Languages",
+        "Hong Kong SAR, China",
+        "Advisors: Patrick C. M. Wong; Xiangbin (Shawn) Teng"
+      ]
+    },
+    {
+      "date": "2017-2019",
+      "title": "Research Associate",
+      "lines": [
+        "NYU-ECNU Institute of Brain and Cognitive Science",
+        "Shanghai, China"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "date": "2019-2024",
+      "title": "Ph.D. in Cognitive Neuroscience",
+      "lines": [
+        "New York University, New York, NY, USA",
+        "Dissertation: <i>Investigation of Motor-based Predictive Signals in Speech Production.</i>",
+        "Advisor: Xing Tian"
+      ]
+    },
+    {
+      "date": "2013-2017",
+      "title": "B.Sc. in Neural Science",
+      "lines": [
+        "New York University / Shanghai, New York, NY, USA",
+        "Capstone: <i>Mental Imagery in Human Speech Production and Perception</i>"
+      ]
+    }
+  ],
+  "awards": [
+    ["2026", "Post-Doctoral Fellow Award", "CNS 2026"],
+    ["2026", "BMI Data Blitz Best Presentation Award", "CUHK"],
+    ["2020", "Dean's Conference Fund", "NYU"],
+    ["2019", "MacCracken Doctoral Fellowship", "NYU"],
+    ["2019", "NYU Shanghai Doctoral Fellowship", "NYU Shanghai"]
+  ],
+  "teaching": [
+    {
+      "date": "2021",
+      "title": "Teaching Assistant, EEG Systems Laboratory",
+      "lines": ["East China Normal University (Spring 2021)"]
+    }
+  ],
+  "skills": [
+    ["Technical", "Python; MATLAB; JavaScript; TypeScript; Node.js; MEG/EEG/iEEG analysis; PCB &amp; 3D printing; Computational modeling"],
+    ["Languages", "English (fluent); Mandarin Chinese (native)"]
+  ],
+  "publications": [
+    {
+      "year": "2026",
+      "authors": "Li, X., Zheng, X., Wu, Y., <b>Zhu, H.</b>, Shu, Y, Tong, R., &amp; Tian, X.",
+      "title": "Motor-based prediction during preparation of hand movement modulates auditory processing in two distinct directions.",
+      "journal": "NeuroImage"
+    },
+    {
+      "year": "2024",
+      "authors": "Yang, F., <b>Zhu, H.*</b>, Cao, X., Li, H., Fang, X., Yu, L., Li, S., Wu, Z., Li, C., Zhang, C., &amp; Tian, X.",
+      "title": "Impaired motor-to-sensory transformation mediates auditory hallucinations.",
+      "journal": "PLOS Biology"
+    },
+    {
+      "year": "2024",
+      "authors": "Yu, X., Li, J., <b>Zhu, H.</b>, Tian, X., &amp; Lau, E.",
+      "title": "Electrophysiological hallmarks for event relations and event roles in working memory.",
+      "journal": "Frontiers in Neuroscience"
+    },
+    {
+      "year": "2023",
+      "authors": "Han, Z., <b>Zhu, H.</b>, Shen, Y., &amp; Tian, X.",
+      "title": "Segregation and integration of sensory features by flexible temporal characteristics of independent neural representations.",
+      "journal": "Cerebral Cortex"
+    },
+    {
+      "year": "2022",
+      "authors": "Zheng, X., <b>Zhu, H.</b>, Li, S., &amp; Tian, X.",
+      "title": "The generic inhibitory function of corollary discharge in motor intention: Evidence from modulation effects of speech preparation on late components of auditory neural responses.",
+      "journal": "eNeuro"
+    },
+    {
+      "year": "2021",
+      "authors": "Yang, F., <b>Zhu, H.</b>, Yu, L., Lu, W., Zhang, C., &amp; Tian, X.",
+      "title": "Deficits in multi-scale top-down processes distorting auditory perception in schizophrenia.",
+      "journal": "Behavioural Brain Research"
+    },
+    {
+      "year": "2020",
+      "authors": "Li, S., <b>Zhu, H.*</b>, &amp; Tian, X.",
+      "title": "Corollary discharge versus efference copy: Distinct neural signals in speech preparation differentially modulate auditory responses.",
+      "journal": "Cerebral Cortex"
+    },
+    {
+      "year": "2018",
+      "authors": "Yang, J., <b>Zhu, H.*</b>, &amp; Tian, X.",
+      "title": "Group-level multivariate analysis in EasyEEG toolbox: Examining the temporal dynamics using topographic responses.",
+      "journal": "Frontiers in Neuroscience"
+    }
+  ],
+  "presentations": [
+    {
+      "year": "2026",
+      "title": "Intracranial mapping of speech entrainment and frequency-following responses.",
+      "venue": "Society for the Neurobiology of Language (SNL), Geneva, Switzerland."
+    },
+    {
+      "year": "2026",
+      "title": "Auditory Network Integration and Neural Representations Collapse Under General Anesthesia: Evidence from Intracranial EEG and Self-Supervised Learning.",
+      "venue": "Cognitive Neuroscience Society (CNS), Vancouver, BC, Canada."
+    },
+    {
+      "year": "2019",
+      "title": "Corollary discharge versus efference copy: Distinct neural signals in speech preparation differentially modulate auditory responses.",
+      "venue": "Society for Neuroscience (SfN), Chicago, IL, USA."
+    }
+  ],
+  "references": [
+    {
+      "name": "Patrick C. M. Wong, Ph.D.",
+      "title": "Stanley Ho Professor of Cognitive Neuroscience",
+      "department": "Department of Linguistics and Modern Languages",
+      "university": "The Chinese University of Hong Kong",
+      "location": "Hong Kong SAR, China"
+    },
+    {
+      "name": "Xing Tian, Ph.D.",
+      "title": "Associate Professor of Neural and Cognitive Sciences",
+      "department": "Department of Neural and Cognitive Sciences",
+      "university": "New York University Shanghai",
+      "location": "Shanghai, China"
+    },
+    {
+      "name": "Xiangbin Teng, Ph.D.",
+      "title": "Assistant Professor of Psychology",
+      "department": "Department of Psychology",
+      "university": "The Chinese University of Hong Kong",
+      "location": "Hong Kong SAR, China"
+    }
+  ]
+}
