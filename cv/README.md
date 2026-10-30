@@ -12,7 +12,7 @@ python3 scripts/build-cv.py
 
 The output is `output/pdf/haozhu_cv_redesigned.pdf`. The website uses `assets/haozhu_cv.pdf`; after reviewing the new PDF, copy the output there. The static build copies that asset into `dist/assets/`.
 
-The script uses the Arial and Georgia TrueType font families and `Arial Unicode.ttf` in `/System/Library/Fonts/Supplemental`. On another platform, set `CV_FONT_DIR` to a folder containing those regular, bold, italic, and bold italic font files. Set `CV_CJK_FONT` to the path of another TrueType font containing 朱 and 昊 if `Arial Unicode.ttf` is unavailable. The Chinese glyphs are embedded in the PDF, so readers do not need the font installed. See the `register_fonts` function for filenames.
+The script uses the Arial and Georgia TrueType font families and Songti SC Regular from `Songti.ttc` (face index 6) in `/System/Library/Fonts/Supplemental`. Songti SC gives 昊 the familiar 日-over-天 shape. On another platform, set `CV_FONT_DIR` to a folder containing the Arial and Georgia regular, bold, italic, and bold italic font files. Set `CV_CJK_FONT` to another TrueType font or collection containing 朱 and 昊 if Songti is unavailable, and set `CV_CJK_FONT_INDEX` to the desired collection face. The default index is 6 for a file named `Songti.ttc`, otherwise 0. The Chinese glyphs are embedded in the PDF, so readers do not need the font installed. See the `register_fonts` function for filenames.
 
 ## Content provenance
 

@@ -1,7 +1,7 @@
 """Build the two-page academic CV from cv/content.json.
 
-Requires reportlab. Uses Georgia, Arial, and Arial Unicode from macOS,
-or CV_FONT_DIR and CV_CJK_FONT overrides.
+Requires reportlab. Uses Georgia, Arial, and Songti SC from macOS,
+or CV_FONT_DIR, CV_CJK_FONT, and CV_CJK_FONT_INDEX overrides.
 Run: python3 scripts/build-cv.py [--output output/pdf/haozhu_cv_redesigned.pdf]
 """
 
@@ -48,8 +48,11 @@ def register_fonts():
             italic=family + "-Italic",
             boldItalic=family + "-BoldItalic",
         )
-    chinese_font = Path(os.environ.get("CV_CJK_FONT", str(folder / "Arial Unicode.ttf")))
-    pdfmetrics.registerFont(TTFont("Chinese", str(chinese_font)))
+    chinese_font = Path(os.environ.get("CV_CJK_FONT", str(folder / "Songti.ttc")))
+    # Songti SC Regular is face 6; face 0 is the much heavier Black style.
+    default_index = "6" if chinese_font.name == "Songti.ttc" else "0"
+    chinese_index = int(os.environ.get("CV_CJK_FONT_INDEX", default_index))
+    pdfmetrics.registerFont(TTFont("Chinese", str(chinese_font), subfontIndex=chinese_index))
 
 
 def style(name="body", **options):
