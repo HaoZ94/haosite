@@ -1,6 +1,7 @@
 """Build the two-page academic CV from cv/content.json.
 
-Requires reportlab. Uses Georgia and Arial from macOS, or CV_FONT_DIR.
+Requires reportlab. Uses Georgia, Arial, and Songti SC from macOS,
+or CV_FONT_DIR, CV_CJK_FONT, and CV_CJK_FONT_INDEX overrides.
 Run: python3 scripts/build-cv.py [--output output/pdf/haozhu_cv_redesigned.pdf]
 """
 
@@ -47,6 +48,11 @@ def register_fonts():
             italic=family + "-Italic",
             boldItalic=family + "-BoldItalic",
         )
+    chinese_font = Path(os.environ.get("CV_CJK_FONT", str(folder / "Songti.ttc")))
+    # Songti SC Regular is face 6; face 0 is the much heavier Black style.
+    default_index = "6" if chinese_font.name == "Songti.ttc" else "0"
+    chinese_index = int(os.environ.get("CV_CJK_FONT_INDEX", default_index))
+    pdfmetrics.registerFont(TTFont("Chinese", str(chinese_font), subfontIndex=chinese_index))
 
 
 def style(name="body", **options):
@@ -61,8 +67,8 @@ class CV:
     def __init__(self, output, data):
         self.data = data
         self.c = canvas.Canvas(str(output), pagesize=A4, pageCompression=1)
-        self.c.setTitle("Hao Zhu | Curriculum Vitae")
-        self.c.setAuthor("Hao Zhu")
+        self.c.setTitle(f'{data["name"]} / {data["chinese_name"]} | Curriculum Vitae')
+        self.c.setAuthor(f'{data["name"]} / {data["chinese_name"]}')
         self.c.setSubject("Academic appointments, education, publications and presentations")
         self.c.setCreator("Hao Zhu CV / ReportLab")
         self.y = HEIGHT - 43
@@ -109,7 +115,7 @@ class CV:
         self.c.setFont("Arial", 7.8)
         self.c.setFillColor(MUTED)
         self.c.drawString(LEFT, 29, "Hao Zhu  |  Curriculum Vitae")
-        self.c.drawCentredString(WIDTH / 2 + 35, 29, "Content updated " + self.data["content_updated"])
+        self.c.drawCentredString(WIDTH / 2 + 35, 29, "Updated " + self.data["content_updated"])
         self.c.drawRightString(RIGHT, 29, f"{page} / 2")
 
     def header(self):
@@ -120,6 +126,10 @@ class CV:
         self.c.setFont("Georgia", 36)
         self.c.setFillColor(INK)
         self.c.drawString(LEFT - 1, self.y - 34, d["name"])
+        chinese_x = LEFT - 1 + pdfmetrics.stringWidth(d["name"], "Georgia", 36) + 16
+        self.c.setFont("Chinese", 23)
+        self.c.setFillColor(TEAL)
+        self.c.drawString(chinese_x, self.y - 34, d["chinese_name"])
         self.c.setFont("Arial", 9)
         self.c.setFillColor(MUTED)
         self.c.drawRightString(RIGHT, self.y - 13, "CURRICULUM VITAE")
@@ -162,6 +172,10 @@ class CV:
         self.c.setFont("Georgia", 14)
         self.c.setFillColor(INK)
         self.c.drawString(LEFT, self.y - 11, self.data["name"])
+        chinese_x = LEFT + pdfmetrics.stringWidth(self.data["name"], "Georgia", 14) + 10
+        self.c.setFont("Chinese", 11)
+        self.c.setFillColor(TEAL)
+        self.c.drawString(chinese_x, self.y - 11, self.data["chinese_name"])
         self.c.setFont("Arial", 8.3)
         self.c.setFillColor(MUTED)
         self.c.drawRightString(RIGHT, self.y - 9, "CURRICULUM VITAE")
