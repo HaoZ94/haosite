@@ -150,7 +150,7 @@ export const profile = {
     'Chinese University of Hong Kong',
     'Shatin, NT, Hong Kong SAR',
   ],
-  mapUrl: 'https://maps.google.com/maps?width=100%25&height=240&hl=en&q=chinese%20university%20of%20hong%20kong+(CUHK)&t=&z=14&ie=UTF8&iwloc=B&output=embed',
+  mapUrl: 'https://www.google.com/maps/search/?api=1&query=The+Chinese+University+of+Hong+Kong',
   visitorCountUrl: 'https://abacus.jasoncameron.dev/hit/haosite/pageviews',
 } as const;
 

@@ -87,7 +87,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </article>
     <article data-page="contact" aria-labelledby="contact-title" hidden>
       <header class="page-heading"><p>Let’s connect</p><h1 id="contact-title" tabindex="-1">Start a conversation.</h1><div class="page-description">I welcome correspondence about research collaboration,<br> graduate training, and academic enquiries.</div></header>
-      <div class="contact-grid"><div class="contact-details"><a class="contact-email" href="${profile.emailHref}">${profile.email} ${icon('external')}</a><dl><div><dt>Find me at</dt><dd>${profile.office.join('<br> ')}</dd></div><div><dt>Elsewhere</dt><dd class="social-links"><a href="${profile.github}" target="_blank" rel="noopener">GitHub ${icon('external')}</a><a href="${profile.x}" target="_blank" rel="noopener">X ${icon('external')}</a></dd></div></dl><details class="map-details"><summary>View campus location</summary><iframe data-src="${escapeHtml(profile.mapUrl)}" title="Chinese University of Hong Kong location" loading="lazy"></iframe></details></div>
+      <div class="contact-grid"><div class="contact-details"><a class="contact-email" href="${profile.emailHref}">${profile.email} ${icon('external')}</a><dl><div><dt>Find me at</dt><dd>${profile.office.join('<br> ')}</dd></div><div><dt>Elsewhere</dt><dd class="social-links"><a href="${profile.github}" target="_blank" rel="noopener">GitHub ${icon('external')}</a><a href="${profile.x}" target="_blank" rel="noopener">X ${icon('external')}</a></dd></div></dl><a class="text-link map-link" href="${escapeHtml(profile.mapUrl)}" target="_blank" rel="noopener noreferrer">View campus location ${icon('external')}</a></div>
       <form class="contact-form"><h2>Send a note</h2><p class="form-hint">This opens a draft in your email app.</p><div class="form-row"><label>Your name<input name="name" autocomplete="name" placeholder="Jane Doe" required maxlength="120"></label><label>Email address<input name="email" type="email" autocomplete="email" placeholder="jane@university.edu" required maxlength="254"></label></div><label>Message<textarea name="message" placeholder="What would you like to explore?" required rows="5" maxlength="4000"></textarea></label><button class="button button-primary" type="submit">Open email draft ${icon('mail')}</button><p class="form-status" role="status" aria-live="polite"></p></form></div>
     </article>
   </main>
@@ -175,11 +175,6 @@ document.querySelector<HTMLFormElement>('.contact-form')!.addEventListener('subm
   const body = encodeURIComponent(`${message}\n\n${name}\n${email}`);
   window.location.href = `${profile.emailHref}?subject=${subject}&body=${body}`;
   document.querySelector('.form-status')!.textContent = `Your email app should open with a draft. You can also write directly to ${profile.email}.`;
-});
-document.querySelector<HTMLDetailsElement>('.map-details')!.addEventListener('toggle', (event) => {
-  const details = event.currentTarget as HTMLDetailsElement;
-  const frame = details.querySelector<HTMLIFrameElement>('iframe')!;
-  if (details.open && !frame.hasAttribute('src')) frame.src = frame.dataset.src!;
 });
 // Keep the portfolio available while the 3D renderer loads in its own chunk.
 const brainScene = document.querySelector<HTMLElement>('.brain-scene')!;
