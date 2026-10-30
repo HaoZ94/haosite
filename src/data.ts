@@ -150,6 +150,7 @@ export const profile = {
     'Chinese University of Hong Kong',
     'Shatin, NT, Hong Kong SAR',
   ],
+  mapEmbedUrl: 'https://www.openstreetmap.org/export/embed.html?bbox=114.201%2C22.415%2C114.212%2C22.424&layer=mapnik&marker=22.419625%2C114.2067606',
   mapUrl: 'https://www.google.com/maps/search/?api=1&query=The+Chinese+University+of+Hong+Kong',
   visitorCountUrl: 'https://abacus.jasoncameron.dev/hit/haosite/pageviews',
 } as const;
