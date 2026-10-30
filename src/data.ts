@@ -150,7 +150,8 @@ export const profile = {
     'Chinese University of Hong Kong',
     'Shatin, NT, Hong Kong SAR',
   ],
-  mapUrl: 'https://maps.google.com/maps?width=100%25&height=240&hl=en&q=chinese%20university%20of%20hong%20kong+(CUHK)&t=&z=14&ie=UTF8&iwloc=B&output=embed',
+  mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3688.3818483209175!2d114.207813!3d22.414649300000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3404089d8add3475%3A0x7ef45610fdeb30e!2z6aaZ5riv5paw55WM6aas5paZ5rC05bSH5Z-66Lev6Kix6K6T5oiQ5qiT!5e0!3m2!1szh-TW!2stw!4v1793374030466!5m2!1szh-TW!2stw',
+  mapUrl: 'https://www.google.com/maps/search/?api=1&query=Hui+Yeung+Shing+Building+CUHK',
   visitorCountUrl: 'https://abacus.jasoncameron.dev/hit/haosite/pageviews',
 } as const;
 
