@@ -23,3 +23,7 @@ The original B.Sc. affiliation/location wording (`New York University / Shanghai
 On 30 October 2026, the author added the Chinese name 朱昊, removed the nickname Shawn from Xiangbin Teng's name, and shortened the footer label to `Updated`. The displayed update date reflects this revision.
 
 When updating the CV, review both rendered pages and the page count. Publication entries and other section lengths can affect the fixed two-page design. Update `content_updated` only when the factual content is updated.
+
+On 27 November 2026, the author added "Automatic binding of basic sensory features requires consciousness" in Nature Communications, explicitly labeled `Accepted in principle`. The title and author spellings come from the author-supplied manuscript-system screenshot; the current acceptance status, Xing Tian's last-author placement, and Hao Zhu's shared first authorship with Zhili Han were confirmed by the author. The original eight published papers remain. No publication year or article DOI is assigned to the new entry before those details are available.
+
+Publication entries may include an optional `status` and omit `year` when not yet published. The renderer prints the status after the journal name. Asterisks mark equal contributions, with Hao Zhu's name bolded throughout. Publication spacing is slightly tighter to retain the two-page layout without reducing the body font size.

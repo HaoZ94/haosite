@@ -185,9 +185,12 @@ class CV:
         citation_x = LEFT + 43
         citation_width = RIGHT - citation_x
         for pub in self.data["publications"]:
-            self.date(pub["year"], self.y, width=29)
+            if pub.get("year"):
+                self.date(pub["year"], self.y, width=29)
             text = f'<font size="9.4" color="#5D6A6A">{pub["authors"]}</font><br/>{pub["title"]} <i>{pub["journal"]}.</i>'
-            self.y -= self.paragraph(text, citation_x, self.y, citation_width, style(fontSize=10.2, leading=13.5)) + 7
+            if pub.get("status"):
+                text += f' <font color="#245D60"><b>({pub["status"]})</b></font>'
+            self.y -= self.paragraph(text, citation_x, self.y, citation_width, style(fontSize=10.2, leading=13)) + 5
         self.section("Presentations", gap=7)
         for talk in self.data["presentations"]:
             self.date(talk["year"], self.y, width=29)
