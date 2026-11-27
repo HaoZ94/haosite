@@ -7,7 +7,7 @@
   "address": "4/F Hui Yeung Shing Building, Shatin, N.T., Hong Kong SAR, China",
   "email": "haozhu@cuhk.edu.hk",
   "website": "hao-zhu.com",
-  "content_updated": "30 October 2026",
+  "content_updated": "27 November 2026",
   "appointments": [
     {
       "date": "2024-present",
@@ -66,6 +66,13 @@
     ["Languages", "English (fluent); Mandarin Chinese (native)"]
   ],
   "publications": [
+    {
+      "year": "2026",
+      "authors": "Han, Z.*, <b>Zhu, H.*</b>, Chu, Q., Wu, Y., Chen, X., Wang, Y., Li, S., Teng, X., Wong, P. C. M., Yao, C., &amp; Tian, X.",
+      "title": "Automatic binding of basic sensory features requires consciousness.",
+      "journal": "Nature Communications",
+      "status": "Accepted in principle"
+    },
     {
       "year": "2026",
       "authors": "Li, X., Zheng, X., Wu, Y., <b>Zhu, H.</b>, Shu, Y, Tong, R., &amp; Tian, X.",
